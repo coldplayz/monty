@@ -86,6 +86,7 @@ typedef struct globals_s
 {
 	instruction_t push_st;
 	instruction_t pall_st;
+	instruction_t nop_st;
 	int linenum; /* for storing file line number count */
 	char *linebuff; /* stores lines of instructions from the monty file */
 	char **instruct_arr; /* for containing the list of instruction tokens*/
