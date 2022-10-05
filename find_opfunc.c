@@ -14,10 +14,8 @@ opfunc find_opfunc(char *opstr)
 	/*oplist_t *oplist_cpy;*/
 	int i = 0;
 	instruction_t opslist[] = {
-		{"push", push},
-		{"pall", pall},
-		{"swap", swap},
-		{"pop", pop},
+		{"push", push}, {"pall", pall}, {"swap", swap}, {"pop", pop},
+		{"sub", sub}, {"div", div_}, {"mul", mul}, {"mod", mod},
 		{NULL, NULL},
 	};
 

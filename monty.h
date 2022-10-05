@@ -133,6 +133,12 @@ void swap(stack_t **stk_top, unsigned int n);
 void add(stack_t **stk_top, unsigned int n);
 void nop(stack_t **stk_top, unsigned int n);
 
+void sub(stack_t **head, unsigned int n);
+void div_(stack_t **stk_top, unsigned int n);
+void mul(stack_t **head, unsigned int n);
+void mod(stack_t **head, unsigned int n);
+
+
 
 
 #endif
