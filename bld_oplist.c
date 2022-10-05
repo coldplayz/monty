@@ -10,7 +10,7 @@
 void bld_oplist(oplist_t **oplist)
 {
 	oplist_t *new;
-	instruction_t *opstruct[] = {&globals.push_st, &globals.pall_st};
+	instruction_t *opstruct[] = {&globals.push_st, &globals.pall_st, &globals.swap_st};
 	int i;
 	
 	for (i = 0; i < 2; i++)

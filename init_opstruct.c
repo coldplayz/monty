@@ -13,4 +13,7 @@ void init_opstruct(void)
 
 	globals.pall_st.opcode = "pall";
 	globals.pall_st.f = &pall;
+
+	globals.swap_st.opcode = "swap";
+	globals.swap_st.f = &swap;
 }
