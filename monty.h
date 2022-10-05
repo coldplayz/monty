@@ -94,6 +94,10 @@ typedef struct globals_s
 	instruction_t pall_st;
 <<<<<<< HEAD
 	instruction_t nop_st;
+<<<<<<< HEAD
+=======
+	instruction_t pint_st;
+>>>>>>> pint.c
 =======
 <<<<<<< HEAD
 	instruction_t add_st;
