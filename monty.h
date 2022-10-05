@@ -50,8 +50,6 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 /* extern declarations of instances of the opcode structs */
-extern instruction_t push_st;
-extern instruction_t pall_st;
 
 typedef void (*opfunc)(stack_t **, unsigned int); /* opfunc now refers to this type */
 
@@ -72,12 +70,29 @@ typedef struct oplist_s
 	struct oplist_s *next;
 } oplist_t;
 
-/* extern declarations */
-extern int linenum; /* for storing file line number count */
-extern oplist_t *oplist; /* head of opcode instructions list */
-extern stack_t *stack_top; /* head of program stack */
-extern char **instruct_arr; /* for containing the list of instruction tokens*/
-extern char *linebuff; /* stores lines of instructions from the monty file */
+
+/**
+ * struct globals_s - data structure for storing
+ * variables that are needed to have global behaviours.
+ * @push_st: instruction_t struct for the push opcode.
+ * @pall: instruction_t struct for the pall opcode.
+ * @linenum: an int.
+ * @linebuff: a string.
+ * @instruct_arr: a NULL-terminated array of strings.
+ * @oplist: a linked list.
+ * @stack_top: program's stack.
+ */
+typedef struct globals_s
+{
+	instruction_t push_st;
+	instruction_t pall_st;
+	int linenum; /* for storing file line number count */
+	char *linebuff; /* stores lines of instructions from the monty file */
+	char **instruct_arr; /* for containing the list of instruction tokens*/
+	oplist_t *oplist; /* head of opcode instructions list */
+	stack_t *stack_top; /* head of program stack */
+} globals_t;
+extern globals_t globals; /* the only global variable declared */
 
 
 /* helper functions */
@@ -91,6 +106,7 @@ void _memncpy(void *dest, void *src, unsigned int n);
 opfunc find_opfunc(char *opstr);
 void perform_op(char *instruct_arr[]);
 void init_opstruct(void);
+void init_globals(void);
 void bld_oplist(oplist_t **oplist);
 void free_stack(stack_t *stk_top);
 void free_oplist(oplist_t *oplist);

@@ -21,11 +21,11 @@ void perform_op(char *instruct_arr[])
 		fprintf(
 				stderr,
 				RED "L%d: unknown instruction %s\n" RESET,
-				linenum, instruct_arr[0]);
-		free(linebuff);
-		free(instruct_arr);
-		free_stack(stack_top);
-		free_oplist(oplist);
+				globals.linenum, instruct_arr[0]);
+		free(globals.linebuff);
+		free(globals.instruct_arr);
+		free_stack(globals.stack_top);
+		free_oplist(globals.oplist);
 		exit(EXIT_FAILURE);
 	}
 
@@ -35,5 +35,5 @@ void perform_op(char *instruct_arr[])
 		oparg = atoi(instruct_arr[1]);
 	}
 
-	ofunc(&stack_top, oparg);
+	ofunc(&globals.stack_top, oparg);
 }

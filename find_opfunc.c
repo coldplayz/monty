@@ -13,7 +13,7 @@ opfunc find_opfunc(char *opstr)
 {
 	oplist_t *oplist_cpy;
 
-	oplist_cpy = oplist; /* make copy as oplist is global, and thus modifiable */
+	oplist_cpy = globals.oplist; /* make copy as oplist is global, and thus modifiable */
 	while (oplist_cpy)
 	{
 		if (strcmp(oplist_cpy->opstruct->opcode, opstr) == 0)

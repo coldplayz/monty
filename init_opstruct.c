@@ -8,9 +8,9 @@
  */
 void init_opstruct(void)
 {
-	push_st.opcode = "push";
-	push_st.f = &push;
+	globals.push_st.opcode = "push";
+	globals.push_st.f = &push;
 
-	pall_st.opcode = "pall";
-	pall_st.f = &pall;
+	globals.pall_st.opcode = "pall";
+	globals.pall_st.f = &pall;
 }

@@ -3,12 +3,7 @@
 #include <string.h>
 #include "monty.h"
 
-int linenum = 0; /* for storing file line number count */
-oplist_t *oplist = NULL; /* head of opcode instructions list */
-stack_t *stack_top = NULL; /* head of program stack */
-char **instruct_arr = NULL; /* for containing the list of instruction tokens*/
-char *linebuff = NULL; /* stores lines of instructions from the monty file */
-instruction_t push_st, pall_st; /* instances of instruction_t opstructs */
+globals_t globals; /* definition of the globals struct. To be initialized */
 
 
 /**
@@ -24,8 +19,9 @@ int main(int argc, char *argv[])
 	int read;
 	size_t buff_size = 0;
 
+	init_globals(); /* initializes variables in the globals_t struct, globals */
 	init_opstruct(); /* define extern-declared instances of opcode structs */
-	bld_oplist(&oplist); /* create an oplist_t linked list based on available opstructs*/
+	bld_oplist(&globals.oplist); /* create an oplist_t linked list based on available opstructs*/
 
 	if (argc != 2)
 	{
@@ -41,32 +37,32 @@ int main(int argc, char *argv[])
 	}
 
 	/* process monty file, line by line */
-	read = getline(&linebuff, &buff_size, fp);
+	read = getline(&globals.linebuff, &buff_size, fp);
 	while (read != -1)
 	{
-		linenum++;
+		globals.linenum++;
 		/* compose array of instruction tokens */
-		instruct_arr = str_arr(linebuff, " \n"); /* to L0 free instruct_arr*/
-		if (!instruct_arr[0])
+		globals.instruct_arr = str_arr(globals.linebuff, " \n"); /* to L0 free instruct_arr*/
+		if (!(globals.instruct_arr)[0])
 		{
 			/* only space(s) and/or newline xters on line */
 			goto nextline; /* skip instruction execution and get next line */
 		}
 
-		perform_op(instruct_arr); /* carry out instruction */
+		perform_op(globals.instruct_arr); /* carry out instruction */
 
 nextline:
-		free(linebuff);
-		linebuff = NULL;
-		free(instruct_arr);
+		free(globals.linebuff);
+		globals.linebuff = NULL;
+		free(globals.instruct_arr);
 
 		/* get next line from the fp file */
-		read = getline(&linebuff, &buff_size, fp); /* to L0 free linebuff */
+		read = getline(&globals.linebuff, &buff_size, fp); /* to L0 free linebuff */
 	}
 
-	free(linebuff);
-	free_stack(stack_top);
-	free_oplist(oplist);
+	free(globals.linebuff);
+	free_stack(globals.stack_top);
+	free_oplist(globals.oplist);
 	fclose(fp);
 
 	return (0);
