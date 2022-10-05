@@ -19,4 +19,10 @@ void init_opstruct(void)
 
 	globals.pint_st.opcode = "pint";
 	globals.pint_st.f = &pint;
+	
+	globals.add_st.opcode = "add";
+	globals.add_st.f = &add;
+	
+	globals.swap_st.opcode = "swap";
+	globals.swap_st.f = &swap;
 }
