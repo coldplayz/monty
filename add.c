@@ -22,7 +22,8 @@ void add(stack_t **stk_top, unsigned int n)
 	{
 		*stk_top = temp->next;/*i.e the 2nd element*/
 		(*stk_top)->n = temp->n + (*stk_top)->n;
-        free(temp);
+		(*stk_top)->prev = NULL;
+		free(temp);
 	}
 	else
 	{
