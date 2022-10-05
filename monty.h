@@ -1,7 +1,12 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#include <stdio.h>
+#include <sys/types.h>
 #include <stddef.h>
+#include <stdio.h>
+#include <sys/types.h>
+
 
 #define ps(x) (printf("%s\n", (x)))
 #define pd(x) (printf("%d\n", (x)))
@@ -51,7 +56,8 @@ typedef struct instruction_s
 } instruction_t;
 /* extern declarations of instances of the opcode structs */
 
-typedef void (*opfunc)(stack_t **, unsigned int); /* opfunc now refers to this type */
+typedef void (*opfunc)(stack_t **, unsigned int);
+/* opfunc now refers to this type (right above) */
 
 
 /**
@@ -86,7 +92,15 @@ typedef struct globals_s
 {
 	instruction_t push_st;
 	instruction_t pall_st;
+<<<<<<< HEAD
 	instruction_t nop_st;
+=======
+<<<<<<< HEAD
+	instruction_t add_st;
+=======
+	instruction_t swap_st;
+>>>>>>> main
+>>>>>>> swap
 	int linenum; /* for storing file line number count */
 	char *linebuff; /* stores lines of instructions from the monty file */
 	char **instruct_arr; /* for containing the list of instruction tokens*/
@@ -95,6 +109,9 @@ typedef struct globals_s
 } globals_t;
 extern globals_t globals; /* the only global variable declared */
 
+ssize_t getline(char **lineptr, size_t *n, FILE *stream);
+
+ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 
 /* helper functions */
 void handle_realloc(
