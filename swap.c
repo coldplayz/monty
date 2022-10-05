@@ -34,7 +34,7 @@ void swap(stack_t **stk_top, unsigned int n)
 	}
 	else
 	{
-		dprintf(2, "L%u: can't swap, stack too short", n);
+		fprintf(stderr, "L%u: can't swap, stack too short", n);
 		exit(EXIT_FAILURE);
 	}
 }

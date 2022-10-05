@@ -1,7 +1,10 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#include <stdio.h>
+#include <sys/types.h>
 #include <stddef.h>
+
 
 #define ps(x) (printf("%s\n", (x)))
 #define pd(x) (printf("%d\n", (x)))
@@ -95,6 +98,8 @@ typedef struct globals_s
 } globals_t;
 extern globals_t globals; /* the only global variable declared */
 
+
+ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 
 /* helper functions */
 void handle_realloc(
