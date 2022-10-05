@@ -15,5 +15,5 @@ void init_opstruct(void)
 	globals.pall_st.f = &pall;
 
 	globals.add_st.opcode = "add";
-	globals.add_st.f = &add
+	globals.add_st.f = &add;
 }
