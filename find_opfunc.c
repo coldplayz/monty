@@ -11,18 +11,29 @@
  */
 opfunc find_opfunc(char *opstr)
 {
-	oplist_t *oplist_cpy;
+	/*oplist_t *oplist_cpy;*/
+	int i = 0;
+	instruction_t opslist[] = {
+		{"push", push},
+		{"pall", pall},
+		{"swap", swap},
+		{"pop", pop},
+		{NULL, NULL},
+	};
 
-	oplist_cpy = globals.oplist; /* make copy as oplist is global, and thus modifiable */
-	while (oplist_cpy)
+	/*oplist_cpy = globals.oplist; make copy as oplist is global, and thus modifiable */
+	/*while (oplist_cpy)*/
+	while (opslist[i].opcode != NULL)
 	{
-		if (strcmp(oplist_cpy->opstruct->opcode, opstr) == 0)
+		/*if (strcmp(oplist_cpy->opstruct->opcode, opstr) == 0)*/
+		if (strcmp(opslist[i].opcode, opstr) == 0)
 		{
 			/* opcode struct found */
-			return (oplist_cpy->opstruct->f);
+			return (opslist[i].f);
+			/*return (oplist_cpy->opstruct->f);*/
 		}
-
-		oplist_cpy = oplist_cpy->next;
+		i++;
+		/*oplist_cpy = oplist_cpy->next;*/
 	}
 
 	/* opstr does not represent any available opcode */
