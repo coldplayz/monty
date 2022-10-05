@@ -38,3 +38,4 @@ void swap(stack_t **stk_top, unsigned int n)
 		exit(EXIT_FAILURE);
 	}
 }
+

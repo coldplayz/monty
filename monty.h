@@ -56,7 +56,8 @@ typedef struct instruction_s
 } instruction_t;
 /* extern declarations of instances of the opcode structs */
 
-typedef void (*opfunc)(stack_t **, unsigned int); /* opfunc now refers to this type */
+typedef void (*opfunc)(stack_t **, unsigned int);
+/* opfunc now refers to this type (right above) */
 
 
 /**
