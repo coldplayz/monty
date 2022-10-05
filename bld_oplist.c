@@ -13,7 +13,7 @@ void bld_oplist(oplist_t **oplist)
 	instruction_t *opstruct[] = {&globals.push_st, &globals.pall_st, &globals.add_st};
 	int i;
 	
-	for (i = 0; i < 2; i++)
+	for (i = 0; i < 3; i++)
 	{
 		new = malloc(sizeof(oplist_t));
 		if (new == NULL)
