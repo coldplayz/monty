@@ -1,7 +1,10 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#include <stdio.h>
+#include <sys/types.h>
 #include <stddef.h>
+
 
 #define ps(x) (printf("%s\n", (x)))
 #define pd(x) (printf("%d\n", (x)))
@@ -86,7 +89,11 @@ typedef struct globals_s
 {
 	instruction_t push_st;
 	instruction_t pall_st;
+<<<<<<< HEAD
 	instruction_t add_st;
+=======
+	instruction_t swap_st;
+>>>>>>> main
 	int linenum; /* for storing file line number count */
 	char *linebuff; /* stores lines of instructions from the monty file */
 	char **instruct_arr; /* for containing the list of instruction tokens*/
@@ -95,6 +102,8 @@ typedef struct globals_s
 } globals_t;
 extern globals_t globals; /* the only global variable declared */
 
+
+ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 
 /* helper functions */
 void handle_realloc(
