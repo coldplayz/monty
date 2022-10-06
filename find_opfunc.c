@@ -18,7 +18,7 @@ opfunc find_opfunc(char *opstr)
 		{"push", push}, {"pall", pall}, {"swap", swap}, {"pop", pop},
 		{"sub", sub}, {"div", div_}, {"mul", mul}, {"mod", mod}, {"add", add},
 		{"pchar", pchar}, {"pstr", pstr}, {"rotl", rotl}, {"rotr", rotr},
-		{"stack", stack_}, {"queue", queue}, {"pint", pint},{"nop", nop},
+		{"stack", stack_}, {"queue", queue}, {"pint", pint}, {"nop", nop},
 		{NULL, NULL},
 	};
 
@@ -36,7 +36,7 @@ opfunc find_opfunc(char *opstr)
 		if (strcmp(opslist[i].opcode, opstr) == 0)
 		{
 			/* opcode struct found */
-			if (strcmp(opstr, "push")== 0 && queue_on)
+			if (strcmp(opstr, "push") == 0 && queue_on)
 				return (queue_push);
 			else
 				return (opslist[i].f);

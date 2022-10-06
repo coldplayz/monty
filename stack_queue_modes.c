@@ -45,19 +45,19 @@ void queue_push(stack_t **stk_top, unsigned int n)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-    new->n = (int)n;
-    new->next = NULL;
-    /* navigate to the tail of the stack */
-    if (tail != NULL)
-    {
-        while (tail->next != NULL)
-            tail = tail->next;
-        new->prev = tail;
-        tail->next = new;
-    }
-    else
-    {
-        new->prev = NULL;
-        *stk_top = new;
-    }
+	new->n = (int)n;
+	new->next = NULL;
+	/* navigate to the tail of the stack */
+	if (tail != NULL)
+	{
+		while (tail->next != NULL)
+			tail = tail->next;
+		new->prev = tail;
+		tail->next = new;
+	}
+	else
+	{
+		new->prev = NULL;
+		*stk_top = new;
+	}
 }
