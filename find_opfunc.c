@@ -21,7 +21,7 @@ opfunc find_opfunc(char *opstr)
 		{NULL, NULL},
 	};
 
-	/*oplist_cpy = globals.oplist; make copy as oplist is global */
+	/*oplist_cpy = globals.oplist; make copy as oplist is global, and thus modifiable */
 	/*while (oplist_cpy)*/
 	while (opslist[i].opcode != NULL)
 	{
