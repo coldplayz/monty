@@ -10,10 +10,11 @@
 void bld_oplist(oplist_t **oplist)
 {
 	oplist_t *new;
-	instruction_t *opstruct[] = {&globals.push_st, &globals.pall_st, &globals.nop_st, &globals.pint_st, &globals.add_st, &globals.swap_st};
+	instruction_t *opstruct[] = {&globals.push_st, &globals.pall_st, &globals.nop_st,
+		&globals.pint_st, &globals.add_st, &globals.swap_st};
 	int i;
 	
-	for (i = 0; i < 3; i++)
+	for (i = 0; i < 6; i++)
 	{
 		new = malloc(sizeof(oplist_t));
 		if (new == NULL)
