@@ -16,23 +16,34 @@ void div_(stack_t **stk_top, unsigned int n)
 	(void)n;
 
 	if (*stk_top != NULL)
-		temp = *stk_top;
-	if (temp->next)/*then we have at least two elements*/
 	{
-		*stk_top = temp->next;/*i.e the 2nd element*/
-		if (temp->n == 0)
+		temp = *stk_top;
+		if (temp->next)/*then we have at least two elements*/
 		{
-			fprintf(stderr, "L%u: division by zero\n", n);
-			exit(EXIT_FAILURE);
+			*stk_top = temp->next;/*i.e the 2nd element*/
+			if (temp->n == 0)
+			{
+				fprintf(stderr, "L%u: division by zero\n", n);
+				garbage_collector();
+				exit(EXIT_FAILURE);
+			}
+			else
+				(*stk_top)->n = (*stk_top)->n / temp->n;
+			(*stk_top)->prev = NULL;
+			free(temp);
 		}
 		else
-			(*stk_top)->n = (*stk_top)->n / temp->n;
-		(*stk_top)->prev = NULL;
-		free(temp);
+		{
+			/* only one node */
+			fprintf(stderr, "L%u: can't div, stack too short\n", n);
+			garbage_collector();
+			exit(EXIT_FAILURE);
+		}
 	}
 	else
 	{
 		fprintf(stderr, "L%u: can't div, stack too short\n", n);
+		garbage_collector();
 		exit(EXIT_FAILURE);
 	}
 }

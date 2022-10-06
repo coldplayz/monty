@@ -16,17 +16,28 @@ void sub(stack_t **stk_top, unsigned int n)
 	(void)n;
 
 	if (*stk_top != NULL)
-		temp = *stk_top;
-	if (temp->next)/*then we have at least two elements*/
 	{
-		*stk_top = temp->next;/*i.e the 2nd element*/
-		(*stk_top)->n = (*stk_top)->n - temp->n;
-		(*stk_top)->prev = NULL;
-		free(temp);
+		temp = *stk_top;
+		if (temp->next)/*then we have at least two elements*/
+		{
+			*stk_top = temp->next;/*i.e the 2nd element*/
+			(*stk_top)->n = (*stk_top)->n - temp->n;
+			(*stk_top)->prev = NULL;
+			free(temp);
+		}
+		else
+		{
+			/* only one node */
+			fprintf(stderr, "L%u: can't sub, stack too short\n", n);
+			garbage_collector();
+			exit(EXIT_FAILURE);
+		}
 	}
 	else
 	{
+		/* zero nodes */
 		fprintf(stderr, "L%u: can't sub, stack too short\n", n);
+		garbage_collector();
 		exit(EXIT_FAILURE);
 	}
 }
