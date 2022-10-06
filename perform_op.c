@@ -25,7 +25,6 @@ void perform_op(char *instruct_arr[])
 		free(globals.linebuff);
 		free(globals.instruct_arr);
 		free_stack(globals.stack_top);
-		free_oplist(globals.oplist);
 		exit(EXIT_FAILURE);
 	}
 

@@ -20,8 +20,6 @@ int main(int argc, char *argv[])
 	size_t buff_size = 0;
 
 	init_globals(); /* initializes variables in the globals_t struct, globals */
-	init_opstruct(); /* define extern-declared instances of opcode structs */
-	bld_oplist(&globals.oplist); /* create an oplist_t linked list based on available opstructs*/
 
 	if (argc != 2)
 	{
@@ -43,7 +41,7 @@ int main(int argc, char *argv[])
 		globals.linenum++;
 		/* compose array of instruction tokens */
 		globals.instruct_arr = str_arr(globals.linebuff, " \n"); /* to L0 free instruct_arr*/
-		if (!(globals.instruct_arr)[0])
+		if (!(globals.instruct_arr)[0] || (globals.instruct_arr)[0][0] == '#')
 		{
 			/* only space(s) and/or newline xters on line */
 			goto nextline; /* skip instruction execution and get next line */
@@ -62,7 +60,6 @@ nextline:
 
 	free(globals.linebuff);
 	free_stack(globals.stack_top);
-	free_oplist(globals.oplist);
 	fclose(fp);
 
 	return (0);

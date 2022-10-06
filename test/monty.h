@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <sys/types.h>
 #include <stddef.h>
-#include <ctype.h>
 
 
 #define ps(x) (printf("%s\n", (x)))
