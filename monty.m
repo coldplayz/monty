@@ -4,4 +4,9 @@ nop
 
   push 	+2147483647
 
+
+  wwush 88
+
+    push -34
+
 	pall

@@ -24,7 +24,8 @@ void perform_op(char *instruct_arr[])
 		free(globals.instruct_arr);
 		if (globals.stack_top)
 			free_stack(globals.stack_top); /* stack is not empty */
-		fclose(globals.fp), exit(EXIT_FAILURE);
+		fclose(globals.fp);
+		exit(EXIT_FAILURE);
 	}
 	if (instruct_arr[1])
 	{
@@ -35,7 +36,8 @@ void perform_op(char *instruct_arr[])
 			free(globals.instruct_arr);
 			if (globals.stack_top)
 				free_stack(globals.stack_top); /* stack is not empty */
-			fclose(globals.fp), exit(EXIT_FAILURE);
+			fclose(globals.fp);
+			exit(EXIT_FAILURE);
 		} /* there is an int argument for the opcode instruction */
 		globals.oparg = atoi(instruct_arr[1]);
 	}
@@ -46,7 +48,8 @@ void perform_op(char *instruct_arr[])
 		free(globals.instruct_arr);
 		if (globals.stack_top)
 			free_stack(globals.stack_top); /* stack is not empty */
-		fclose(globals.fp), exit(EXIT_FAILURE);
+		fclose(globals.fp);
+		exit(EXIT_FAILURE);
 	}
 	ofunc(&globals.stack_top, 0);
 }
