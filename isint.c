@@ -12,9 +12,14 @@
  */
 int isint(char *str)
 {
-	int i;
+	int i = 0;
 
-	for (i = 0; str[i]; i++)
+	if (str[0] == '-')
+	{
+		i = 1;
+	}
+
+	for (; str[i]; i++)
 	{
 		if (isdigit(str[i]) == 0)
 		{

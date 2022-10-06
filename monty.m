@@ -1,9 +1,7 @@
-push 1
+nop
 
-		push		 2
+	push -2147483648
 
-	push 3 	\
+  push 	2147483647
 
-pall
-
-pint
+	pall
