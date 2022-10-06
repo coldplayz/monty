@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 	{
 		globals.linenum++;
 		/* compose array of instruction tokens */
-		globals.instruct_arr = str_arr(globals.linebuff, " \t\n");
+		globals.instruct_arr = str_arr(globals.linebuff, "\a\r \t\n");
 		if (!(globals.instruct_arr)[0] || (globals.instruct_arr)[0][0] == '#')
 		{
 			/* only space(s) and/or newline xters on line */
