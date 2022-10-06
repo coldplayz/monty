@@ -17,6 +17,7 @@ opfunc find_opfunc(char *opstr)
 		{"push", push},
 		{"pall", pall},
 		{"swap", swap},
+		{"add", add},
 		{"pop", pop},
 		{"pint", pint},
 		{"nop", nop},
