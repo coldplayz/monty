@@ -137,8 +137,14 @@ void sub(stack_t **head, unsigned int n);
 void div_(stack_t **stk_top, unsigned int n);
 void mul(stack_t **head, unsigned int n);
 void mod(stack_t **head, unsigned int n);
+void pchar(stack_t **head, unsigned int n);
+void pstr(stack_t **head, unsigned int n);
+void rotl(stack_t **head, unsigned int n);
+void rotr(stack_t **head, unsigned int n);
+void stack_(stack_t **head, unsigned int n);
+void queue(stack_t **head, unsigned int n);
 
-
-
+/* queue-mode specific function */
+void queue_push(stack_t **stk_top, unsigned int n);
 
 #endif
