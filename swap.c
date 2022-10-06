@@ -38,7 +38,7 @@ void swap(stack_t **stk_top, unsigned int n)
 		else
 		{
 			/* only one node */
-			fprintf(stderr, "L%u: can't swap, stack too short", n);
+			fprintf(stderr, "L%u: can't swap, stack too short\n", n);
 			garbage_collector();
 			exit(EXIT_FAILURE);
 		}
@@ -46,7 +46,7 @@ void swap(stack_t **stk_top, unsigned int n)
 	else
 	{
 		/* zero nodes */
-		fprintf(stderr, "L%u: can't swap, stack too short", n);
+		fprintf(stderr, "L%u: can't swap, stack too short\n", n);
 		garbage_collector();
 		exit(EXIT_FAILURE);
 	}

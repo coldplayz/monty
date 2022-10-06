@@ -1,1 +1,6 @@
-pop
+
+
+pall
+swap
+
+pall
