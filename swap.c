@@ -35,6 +35,11 @@ void swap(stack_t **stk_top, unsigned int n)
 	else
 	{
 		fprintf(stderr, "L%u: can't swap, stack too short", n);
+		free(globals.linebuff);
+		free(globals.instruct_arr);
+		if (globals.stack_top)
+			free_stack(globals.stack_top); /* stack is not empty */
+		fclose(globals.fp);
 		exit(EXIT_FAILURE);
 	}
 }

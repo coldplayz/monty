@@ -16,7 +16,7 @@ void push(stack_t **stk_top, unsigned int n)
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
-		fprintf(stderr, RED "Error: malloc failed\n" RESET);
+		fprintf(stderr, "Error: malloc failed\n");
 		free(globals.linebuff);
 		free(globals.instruct_arr);
 		if (globals.stack_top)

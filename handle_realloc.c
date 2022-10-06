@@ -30,7 +30,12 @@ void handle_realloc(char ***str_ar, int i, int bsize, int *old_bsize,
 		tmp = realloc3(*str_ar, *old_bsize, *bsize_total);
 		if (!tmp)
 		{
-			fprintf(stderr, RED "Error: malloc failed\n" RESET);
+			fprintf(stderr, "Error: malloc failed\n");
+			free(globals.linebuff);
+			free(globals.instruct_arr);
+			if (globals.stack_top)
+				free_stack(globals.stack_top); /* stack is not empty */
+			fclose(globals.fp);
 			exit(EXIT_FAILURE);
 		}
 

@@ -25,7 +25,7 @@ char **str_arr(char *str, const char *delim)
 	str_ar = malloc(bsize);
 	if (!str_ar)
 	{
-		fprintf(stderr, RED "Error: malloc failed\n" RESET);
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 

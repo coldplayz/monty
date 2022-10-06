@@ -18,7 +18,7 @@ void pop(stack_t **stk_top, unsigned int n __attribute__((unused)))
 		/* empty stack */
 		fprintf(
 				stderr,
-				RED "L%d: can't pop an empty stack\n" RESET,
+				"L%d: can't pop an empty stack\n",
 				globals.linenum);
 		free(globals.linebuff);
 		free(globals.instruct_arr);

@@ -21,13 +21,13 @@ int main(int argc, char *argv[])
 	init_globals(); /* initializes variables in the globals_t struct, globals */
 	if (argc != 2)
 	{
-		fprintf(stderr, RED "USAGE: monty file\n" RESET);
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	globals.fp = fopen(argv[1], "r"); /* returns a FILE ptr or NULL on failure */
 	if (!globals.fp)
 	{
-		fprintf(stderr, RED "Error: Can't open file %s\n" RESET, argv[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	/* process monty file, line by line */
