@@ -4,16 +4,15 @@
 #include "monty.h"
 
 /**
- * add - adds the two element at the top of the stack
+ * swap - swaps the two element at the top of the stack
  * Description: i.e. the stk_top (topmost) and stk_top->next
- * and stores the result in stk_top->next, popping stk_top
  * @stk_top: double pointer to stk_top(top) of stack
  * @n: line number
  * Return: Nothing
  */
-void add(stack_t **stk_top, unsigned int n)
+void swap(stack_t **stk_top, unsigned int n)
 {
-	stack_t *temp;
+	stack_t *temp, *third;
 	(void)n;
 
 	if (*stk_top != NULL)
@@ -21,13 +20,22 @@ void add(stack_t **stk_top, unsigned int n)
 	if (temp->next)/*then we have at least two elements*/
 	{
 		*stk_top = temp->next;/*i.e the 2nd element*/
-		(*stk_top)->n = temp->n + (*stk_top)->n;
+		if (temp->next->next)
+		{
+			third = temp->next->next;
+			third->prev = temp;
+			temp->next = third;
+		}
+		else
+			temp->next = NULL;
 		(*stk_top)->prev = NULL;
-		free(temp);
+		(*stk_top)->next = temp;
+		temp->prev = *stk_top;
 	}
 	else
 	{
-		fprintf(stderr, "L%u: can't add, stack too short", n);
+		fprintf(stderr, "L%u: can't swap, stack too short", n);
 		exit(EXIT_FAILURE);
 	}
 }
+
