@@ -20,11 +20,7 @@ void perform_op(char *instruct_arr[])
 				stderr,
 				"L%d: unknown instruction %s\n",
 				globals.linenum, instruct_arr[0]);
-		free(globals.linebuff);
-		free(globals.instruct_arr);
-		if (globals.stack_top)
-			free_stack(globals.stack_top); /* stack is not empty */
-		fclose(globals.fp);
+		garbage_collector();
 		exit(EXIT_FAILURE);
 	}
 	if (instruct_arr[1])
@@ -32,11 +28,7 @@ void perform_op(char *instruct_arr[])
 		if (!isint(instruct_arr[1]) && strcmp(instruct_arr[0], "push") == 0)
 		{/* argument not int */
 			fprintf(stderr, "L%d: usage: push integer\n", globals.linenum);
-			free(globals.linebuff);
-			free(globals.instruct_arr);
-			if (globals.stack_top)
-				free_stack(globals.stack_top); /* stack is not empty */
-			fclose(globals.fp);
+			garbage_collector();
 			exit(EXIT_FAILURE);
 		} /* there is an int argument for the opcode instruction */
 		globals.oparg = atoi(instruct_arr[1]);
@@ -44,11 +36,7 @@ void perform_op(char *instruct_arr[])
 	else if ((strcmp(instruct_arr[0], "push") == 0) && (!instruct_arr[1]))
 	{/* no argument for push */
 		fprintf(stderr, "L%d: usage: push integer\n", globals.linenum);
-		free(globals.linebuff);
-		free(globals.instruct_arr);
-		if (globals.stack_top)
-			free_stack(globals.stack_top); /* stack is not empty */
-		fclose(globals.fp);
+		garbage_collector();
 		exit(EXIT_FAILURE);
 	}
 	ofunc(&globals.stack_top, globals.linenum);

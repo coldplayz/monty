@@ -114,7 +114,7 @@ void init_globals(void);
 void free_stack(stack_t *stk_top);
 
 int isint(char *str);
-
+void garbage_collector(void);
 
 
 /* instruction function prototypes */

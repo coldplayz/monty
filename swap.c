@@ -16,30 +16,38 @@ void swap(stack_t **stk_top, unsigned int n)
 	(void)n;
 
 	if (*stk_top != NULL)
-		temp = *stk_top;
-	if (temp->next)/*then we have at least two elements*/
 	{
-		*stk_top = temp->next;/*i.e the 2nd element*/
-		if (temp->next->next)
+		temp = *stk_top;
+		if (temp->next)/*then we have at least two elements*/
 		{
-			third = temp->next->next;
-			third->prev = temp;
-			temp->next = third;
+			*stk_top = temp->next;/*i.e the 2nd element*/
+			if (temp->next->next)
+			{
+				third = temp->next->next;
+				third->prev = temp;
+				temp->next = third;
+			}
+			else
+			{
+				temp->next = NULL;
+			}
+			(*stk_top)->prev = NULL;
+			(*stk_top)->next = temp;
+			temp->prev = *stk_top;
 		}
 		else
-			temp->next = NULL;
-		(*stk_top)->prev = NULL;
-		(*stk_top)->next = temp;
-		temp->prev = *stk_top;
+		{
+			/* only one node */
+			fprintf(stderr, "L%u: can't swap, stack too short", n);
+			garbage_collector();
+			exit(EXIT_FAILURE);
+		}
 	}
 	else
 	{
+		/* zero nodes */
 		fprintf(stderr, "L%u: can't swap, stack too short", n);
-		free(globals.linebuff);
-		free(globals.instruct_arr);
-		if (globals.stack_top)
-			free_stack(globals.stack_top); /* stack is not empty */
-		fclose(globals.fp);
+		garbage_collector();
 		exit(EXIT_FAILURE);
 	}
 }
