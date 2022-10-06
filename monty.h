@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <sys/types.h>
 #include <stddef.h>
+#include <stdio.h>
+#include <sys/types.h>
 
 
 #define ps(x) (printf("%s\n", (x)))
@@ -54,7 +56,8 @@ typedef struct instruction_s
 } instruction_t;
 /* extern declarations of instances of the opcode structs */
 
-typedef void (*opfunc)(stack_t **, unsigned int); /* opfunc now refers to this type */
+typedef void (*opfunc)(stack_t **, unsigned int);
+/* opfunc now refers to this type (right above) */
 
 
 /**
@@ -89,6 +92,8 @@ typedef struct globals_s
 {
 	instruction_t push_st;
 	instruction_t pall_st;
+	instruction_t nop_st;
+	instruction_t pint_st;
 	instruction_t add_st;
 	instruction_t swap_st;
 	int linenum; /* for storing file line number count */
@@ -99,6 +104,7 @@ typedef struct globals_s
 } globals_t;
 extern globals_t globals; /* the only global variable declared */
 
+ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 
