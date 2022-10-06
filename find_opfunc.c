@@ -17,11 +17,14 @@ opfunc find_opfunc(char *opstr)
 		{"push", push},
 		{"pall", pall},
 		{"swap", swap},
+		{"add", add},
 		{"pop", pop},
+		{"pint", pint},
+		{"nop", nop},
 		{NULL, NULL},
 	};
 
-	/*oplist_cpy = globals.oplist; make copy as oplist is global, and thus modifiable */
+	/*oplist_cpy = globals.oplist; make copy as oplist is global */
 	/*while (oplist_cpy)*/
 	while (opslist[i].opcode != NULL)
 	{
