@@ -43,6 +43,7 @@ void queue_push(stack_t **stk_top, unsigned int n)
 	if (new == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		garbage_collector();
 		exit(EXIT_FAILURE);
 	}
 	new->n = (int)n;
