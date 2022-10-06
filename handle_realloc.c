@@ -11,10 +11,12 @@
  * @i: the value of the index tracking the number of elements in str_ar.
  * @str_ar: address of a double pointer previously allocated memory.
  * @bsize: the unit memory size for str_ar.
+ * @old_bsize:
  * @bsize_total: address of the variable
  * representing the total size of the str_ar buffer.
  */
-void handle_realloc(char ***str_ar, int i, int bsize, int *old_bsize, int *bsize_total)
+void handle_realloc(char ***str_ar, int i, int bsize, int *old_bsize,
+	int *bsize_total)
 {
 	char **tmp, **tmp2;
 

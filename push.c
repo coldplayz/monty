@@ -25,7 +25,7 @@ void push(stack_t **stk_top, unsigned int n)
 	}
 
 	new->n = n;
-	new->next = *stk_top;		/*new node is now pointing to what head is pointing to*/
+	new->next = *stk_top; /*new node is now pointing to what head is pointing to*/
 	new->prev = NULL;
 
 	/* link new to stack */

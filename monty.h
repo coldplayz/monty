@@ -60,7 +60,7 @@ typedef void (*opfunc)(stack_t **, unsigned int);
 
 /**
  * struct oplist_s - opcode instructions list
- * opstruct: pointer to an instruction_t struct for an opcode
+ * @opstruct: pointer to an instruction_t struct for an opcode
  * @prev: points to the previous list item
  * @next: points to the next list item
  *
