@@ -3,8 +3,9 @@
 #include "monty.h"
 
 /**
- * print_dlistint - prints all elements of the structure stack_s
+ * pall - prints all elements of the structure stack_s
  * @stk_top: the head of a structure of type 'struct stack_s'
+ * @n: file current line number.
  */
 void pall(stack_t **stk_top, unsigned int n __attribute__((unused)))
 {

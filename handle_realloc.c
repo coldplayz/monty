@@ -11,7 +11,7 @@
  * @i: the value of the index tracking the number of elements in str_ar.
  * @str_ar: address of a double pointer previously allocated memory.
  * @bsize: the unit memory size for str_ar.
- * @old_bsize:
+ * @old_bsize: address of variable storing the buffer's prev size.
  * @bsize_total: address of the variable
  * representing the total size of the str_ar buffer.
  */
