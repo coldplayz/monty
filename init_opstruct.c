@@ -14,6 +14,12 @@ void init_opstruct(void)
 	globals.pall_st.opcode = "pall";
 	globals.pall_st.f = &pall;
 
+	globals.nop_st.opcode = "nop";
+	globals.nop_st.f = &nop;
+
+	globals.pint_st.opcode = "pint";
+	globals.pint_st.f = &pint;
+	
 	globals.add_st.opcode = "add";
 	globals.add_st.f = &add;
 	
