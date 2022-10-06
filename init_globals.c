@@ -13,4 +13,5 @@ void init_globals(void)
 	globals.instruct_arr = NULL; /* containing the list of instruction tokens*/
 	globals.linebuff = NULL; /* stores lines of instructions from monty file */
 	globals.fp = NULL; /* FILE pointer to the monty file */
+	globals.oparg = 0;
 }

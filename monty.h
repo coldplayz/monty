@@ -83,6 +83,7 @@ typedef struct oplist_s
  * @instruct_arr: a NULL-terminated array of strings.
  * @stack_top: program's stack.
  * @fp: pointer to FILE type.
+ * @oparg: int for storing arguments to the push opcode.
  */
 typedef struct globals_s
 {
@@ -91,6 +92,7 @@ typedef struct globals_s
 	char **instruct_arr; /* for containing the list of instruction tokens*/
 	stack_t *stack_top; /* head of program stack */
 	FILE *fp;
+	int oparg;
 } globals_t;
 extern globals_t globals; /* the only global variable declared */
 

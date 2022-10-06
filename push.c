@@ -12,6 +12,7 @@ void push(stack_t **stk_top, unsigned int n)
 {
 	stack_t *new;
 
+	(void)n;
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
@@ -24,7 +25,7 @@ void push(stack_t **stk_top, unsigned int n)
 		exit(EXIT_FAILURE);
 	}
 
-	new->n = n;
+	new->n = globals.oparg;
 	new->next = *stk_top; /*new node is now pointing to what head is pointing to*/
 	new->prev = NULL;
 
