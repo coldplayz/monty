@@ -12,4 +12,5 @@ void init_globals(void)
 	globals.stack_top = NULL; /* head of program stack */
 	globals.instruct_arr = NULL; /* for containing the list of instruction tokens*/
 	globals.linebuff = NULL; /* stores lines of instructions from the monty file */
+	globals.fp = NULL; /* FILE pointer to the monty file */
 }

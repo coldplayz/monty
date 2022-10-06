@@ -82,6 +82,7 @@ typedef struct oplist_s
  * @linebuff: a string.
  * @instruct_arr: a NULL-terminated array of strings.
  * @stack_top: program's stack.
+ * @fp: pointer to FILE type.
  */
 typedef struct globals_s
 {
@@ -89,6 +90,7 @@ typedef struct globals_s
 	char *linebuff; /* stores lines of instructions from the monty file */
 	char **instruct_arr; /* for containing the list of instruction tokens*/
 	stack_t *stack_top; /* head of program stack */
+	FILE *fp;
 } globals_t;
 extern globals_t globals; /* the only global variable declared */
 
