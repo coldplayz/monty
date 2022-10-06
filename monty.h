@@ -4,8 +4,6 @@
 #include <stdio.h>
 #include <sys/types.h>
 #include <stddef.h>
-#include <stdio.h>
-#include <sys/types.h>
 
 
 #define ps(x) (printf("%s\n", (x)))
@@ -92,6 +90,8 @@ typedef struct globals_s
 {
 	instruction_t push_st;
 	instruction_t pall_st;
+	instruction_t nop_st;
+	instruction_t pint_st;
 	instruction_t add_st;
 	instruction_t swap_st;
 	int linenum; /* for storing file line number count */
