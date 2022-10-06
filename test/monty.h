@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <sys/types.h>
 #include <stddef.h>
-#include <ctype.h>
 
 
 #define ps(x) (printf("%s\n", (x)))
@@ -82,7 +81,6 @@ typedef struct oplist_s
  * @linebuff: a string.
  * @instruct_arr: a NULL-terminated array of strings.
  * @stack_top: program's stack.
- * @fp: pointer to FILE type.
  */
 typedef struct globals_s
 {
@@ -90,7 +88,6 @@ typedef struct globals_s
 	char *linebuff; /* stores lines of instructions from the monty file */
 	char **instruct_arr; /* for containing the list of instruction tokens*/
 	stack_t *stack_top; /* head of program stack */
-	FILE *fp;
 } globals_t;
 extern globals_t globals; /* the only global variable declared */
 
@@ -128,14 +125,8 @@ void sub(stack_t **head, unsigned int n);
 void div_(stack_t **stk_top, unsigned int n);
 void mul(stack_t **head, unsigned int n);
 void mod(stack_t **head, unsigned int n);
-void pchar(stack_t **head, unsigned int n);
-void pstr(stack_t **head, unsigned int n);
-void rotl(stack_t **head, unsigned int n);
-void rotr(stack_t **head, unsigned int n);
-void stack_(stack_t **head, unsigned int n);
-void queue(stack_t **head, unsigned int n);
 
-/* queue-mode specific function */
-void queue_push(stack_t **stk_top, unsigned int n);
+
+
 
 #endif

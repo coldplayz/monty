@@ -18,7 +18,8 @@ opfunc find_opfunc(char *opstr)
 		{"push", push}, {"pall", pall}, {"swap", swap}, {"pop", pop},
 		{"sub", sub}, {"div", div_}, {"mul", mul}, {"mod", mod}, {"add", add},
 		{"pchar", pchar}, {"pstr", pstr}, {"rotl", rotl}, {"rotr", rotr},
-		{"stack", stack_}, {"queue", queue}, {NULL, NULL},
+		{"stack", stack_}, {"queue", queue}, {NULL, NULL}, {"pint", pint},
+		{"nop", nop}, {NULL, NULL},
 	};
 
 	/* check and update mode flag */
