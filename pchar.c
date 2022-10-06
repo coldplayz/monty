@@ -18,7 +18,7 @@ void pchar(stack_t **stk_top, unsigned int n)
 	{
 		if ((*stk_top)->n < 0 || (*stk_top)->n > 127)
 		{
-			fprintf(stderr, "L%u: can't pchar, value out of range\n", n);
+			fprintf(stderr, "L%d: can't pchar, value out of range\n", globals.linenum);
 			exit(EXIT_FAILURE);
 		}
 		else
@@ -26,7 +26,7 @@ void pchar(stack_t **stk_top, unsigned int n)
 	}
 	else
 	{
-		fprintf(stderr, "L%u: can't pchar, stack empty\n", n);
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", globals.linenum);
 		exit(EXIT_FAILURE);
 	}
 }
