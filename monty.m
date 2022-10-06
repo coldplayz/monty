@@ -7,3 +7,7 @@ push 6
 pall
 swap
 pall
+pop
+pop
+pall
+nop
