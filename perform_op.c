@@ -18,7 +18,7 @@ void perform_op(char *instruct_arr[])
 	{/* invalid instruction */
 		fprintf(
 				stderr,
-				RED "L%d: unknown instruction %s\n" RESET,
+				"L%d: unknown instruction %s\n",
 				globals.linenum, instruct_arr[0]);
 		free(globals.linebuff);
 		free(globals.instruct_arr);
@@ -31,7 +31,7 @@ void perform_op(char *instruct_arr[])
 	{
 		if (!isint(instruct_arr[1]) && strcmp(instruct_arr[0], "push") == 0)
 		{/* argument not int */
-			fprintf(stderr, RED "L%d: usage: push integer\n" RESET, globals.linenum);
+			fprintf(stderr, "L%d: usage: push integer\n", globals.linenum);
 			free(globals.linebuff);
 			free(globals.instruct_arr);
 			if (globals.stack_top)
@@ -43,7 +43,7 @@ void perform_op(char *instruct_arr[])
 	}
 	else if ((strcmp(instruct_arr[0], "push") == 0) && (!instruct_arr[1]))
 	{/* no argument for push */
-		fprintf(stderr, RED "L%d: usage: push integer\n" RESET, globals.linenum);
+		fprintf(stderr, "L%d: usage: push integer\n", globals.linenum);
 		free(globals.linebuff);
 		free(globals.instruct_arr);
 		if (globals.stack_top)
@@ -51,5 +51,5 @@ void perform_op(char *instruct_arr[])
 		fclose(globals.fp);
 		exit(EXIT_FAILURE);
 	}
-	ofunc(&globals.stack_top, 0);
+	ofunc(&globals.stack_top, globals.linenum);
 }
