@@ -16,4 +16,7 @@ void init_opstruct(void)
 
 	globals.add_st.opcode = "add";
 	globals.add_st.f = &add;
+	
+	globals.swap_st.opcode = "swap";
+	globals.swap_st.f = &swap;
 }
