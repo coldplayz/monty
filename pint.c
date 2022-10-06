@@ -16,7 +16,7 @@ void pint(stack_t **stk_top, unsigned int n)
 		printf("%d\n", (*stk_top)->n);
 	else
 	{
-		fprintf(stderr, "L%u: can't pint, stack empty", n);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", n);
 		exit(EXIT_FAILURE);
 	}
 }
