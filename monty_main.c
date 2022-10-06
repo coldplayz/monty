@@ -58,7 +58,8 @@ nextline:
 	}
 
 	free(globals.linebuff);
-	free_stack(globals.stack_top);
+	if (globals.stack_top)
+		free_stack(globals.stack_top);
 	fclose(globals.fp);
 
 	return (0);
