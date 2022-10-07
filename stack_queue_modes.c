@@ -36,6 +36,7 @@ void stack_(stack_t **stk_top, unsigned int n)
 void queue_push(stack_t **stk_top, unsigned int n)
 {
 	stack_t *new, *tail = *stk_top;
+	(void)n;
 
 	/*checking if n - done outside this fn */
 	/*printf("in push\n");*/
@@ -43,10 +44,14 @@ void queue_push(stack_t **stk_top, unsigned int n)
 	if (new == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		garbage_collector();
+		free(globals.linebuff);
+		free(globals.instruct_arr);
+		if (globals.stack_top)
+			free_stack(globals.stack_top); /* stack is not empty */
+		fclose(globals.fp);
 		exit(EXIT_FAILURE);
 	}
-	new->n = (int)n;
+	new->n = globals.oparg;
 	new->next = NULL;
 	/* navigate to the tail of the stack */
 	if (tail != NULL)
